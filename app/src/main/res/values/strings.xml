@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Dadz Jokes</string>
+    <string name="get_a_joke">Get a Joke</string>
+    <string name="favorites">Favorites</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_another_joke">Get Another Joke</string>
+    <string name="dad">-Another Dad</string>
+</resources>
