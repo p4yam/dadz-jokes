@@ -12,6 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fGetJokesContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".get_jokes.GetJokeFragment">
@@ -30,14 +31,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/fGetJokesJoke"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_margin="12dp"
+            android:fontFamily="serif"
+            android:text="@string/dad"
+            android:textColor="#8395a7"
             android:textSize="17sp"
             android:visibility="@{viewModel.state==1?View.VISIBLE:View.GONE}"
-            android:textColor="#8395a7"
-            android:fontFamily="serif"
-            android:text="@string/dad"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fGetJokesJoke" />
 
 
         <ProgressBar
@@ -45,20 +46,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="@{viewModel.state==0?View.VISIBLE:View.GONE}"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="@{viewModel.state==1?true:false}"
             android:layout_margin="24dp"
+            android:enabled="@{viewModel.state==1?true:false}"
             android:onClick="@{()->viewModel.refreshJoke()}"
             android:text="@string/get_another_joke"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="12dp"
+            android:id="@+id/fGetJokeLikeButton"
+            android:tint="@{viewModel.saveState? @color/colorAccent: @color/colorDarkGray}"
+            android:onClick="@{()->viewModel.addJoke(viewModel.joke)}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_favorite_black_24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
